@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 import listings.views
+import reviews.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('listings/', listings.views.index)
+    path('listings/', listings.views.index),
+    path('reviews/', reviews.views.index)
 ]
