@@ -1,17 +1,14 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>Document</title>
 </head>
 <body>
-    hello worldz
-    {% for list in listings %}
-        <li>{{list.title}} - {{list.description}}</li>
+    Sellers
+    {% for sell in sellers %}
+    <li>{{sell.seller_name}}</li>
     {% endfor %}
 </body>
 </html>
