@@ -24,4 +24,6 @@ urlpatterns = [
     path('listings/', listings.views.index),
     path('reviews/', reviews.views.index),
     path('sellers/', listings.views.view_sellers),
+    path('create_listing/', listings.views.create_listing),
+    path('edit_listing/<listing_id>', listings.views.edit_listing, name='update_listing_route'),
 ]
