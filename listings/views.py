@@ -46,3 +46,10 @@ def edit_listing(request, listing_id):
             'form': listing_form,
             'listing': listing_being_updated
         })
+
+
+def delete_listing(request, listing_id):
+    listing_being_deleted = get_object_or_404(Listing, pk=listing_id)
+    return render(request, 'listings/confirm_delete.template.html', {
+        'listing': listing_being_deleted
+    })
