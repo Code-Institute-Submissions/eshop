@@ -9,6 +9,13 @@
     <title>Document</title>
 </head>
 <body>
+    display user logged in
+    {% if request.user.is_authenticated  %}
+    <p>Welcome {{request.user}}</p>
+    {% else %}
+    <p>Please <a href="/accounts/login">Login</a></p>
+    {%endif%}
+
     hello worldz
     {% for list in listings %}
         <li>{{list.title}} - {{list.description}} <a href="{% url 'update_listing_route' listing_id=list.id %}">Edit</a>

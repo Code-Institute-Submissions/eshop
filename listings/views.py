@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
 from .models import Listing, Seller
 from .forms import ListingForm
+from django.contrib.auth.decorators import login_required, permission_required
 # Create your views here.
 
 
@@ -19,6 +20,7 @@ def view_sellers(request):
     })
 
 
+@login_required
 def create_listing(request):
     if request.method == "POST":
         form = ListingForm(request.POST)
