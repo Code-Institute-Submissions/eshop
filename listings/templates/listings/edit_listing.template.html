@@ -1,12 +1,14 @@
 {% extends 'base.template.html' %}
 {%load static %}
+{%load crispy_forms_tags %}
 
 {%block content%}
     
     <h1>editing {{listing.title}}</h1>
     <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
+    <!-- {{ form.as_p }} -->
     <input type="submit"/>
     </form>
 

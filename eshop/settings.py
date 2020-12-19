@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
     'listings',
     'reviews'
 ]
@@ -155,3 +156,6 @@ STATICFILES_DIRS = [
 
 # flash message
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+# crispy form
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
