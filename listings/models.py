@@ -4,12 +4,19 @@ from django.db import models
 
 # to have a listing table in database
 
+class Category(models.Model):
+    category_name = models.CharField(blank=False, max_length=255)
+
+    def __str__(self):
+        return f"{self.category_name}"
 
 class Listing(models.Model):
     # fields / attributes of this table
     title = models.CharField(blank=False, max_length=255)
     SKU = models.CharField(blank=False, max_length=255)
     description = models.TextField(blank=False)
+
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     # toString function -- allow us to state the string rep of class
     def __str__(self):
