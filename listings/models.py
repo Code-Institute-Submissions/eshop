@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -24,6 +25,7 @@ class Listing(models.Model):
     title = models.CharField(blank=False, max_length=255)
     SKU = models.CharField(blank=False, max_length=255)
     description = models.TextField(blank=False)
+    seller = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     # condition = models.ManyToManyField('Condition')
