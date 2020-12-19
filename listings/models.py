@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -28,6 +29,8 @@ class Listing(models.Model):
     seller = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    cover = CloudinaryField()
     # condition = models.ManyToManyField('Condition')
 
     # toString function -- allow us to state the string rep of class
