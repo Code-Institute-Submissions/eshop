@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect, reverse, get_object
 from .models import Listing, Seller
 from .forms import ListingForm
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib import messages
 # Create your views here.
 
 
@@ -26,6 +27,7 @@ def create_listing(request):
         form = ListingForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, f"New listing {form.cleaned_data['title']} has been created")
             return redirect(reverse(index))
     else:
         # create instance of ListingForm

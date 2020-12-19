@@ -152,3 +152,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+# flash message
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
