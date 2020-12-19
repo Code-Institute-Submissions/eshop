@@ -13,6 +13,11 @@ def index(request):
     }
     )
 
+def view_listing_details(request, listing_id):
+    listing = get_object_or_404(Listing, pk=listing_id)
+    return render(request, 'listings/details.template.html', {
+        'listing': listing
+    })
 
 def view_sellers(request):
     all_sellers = Seller.objects.all()

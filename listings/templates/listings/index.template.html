@@ -11,7 +11,9 @@
 
     hello worldz
     {% for list in listings %}
-        <li>{{list.title}} - {{list.description}} <a href="{% url 'update_listing_route' listing_id=list.id %}">Edit</a>
+        <li>
+        <a href="{% url 'view_listing_details' listing_id=list.id %}">{{list.title}}</a>    
+        {{list.title}} - {{list.description}} <a href="{% url 'update_listing_route' listing_id=list.id %}">Edit</a>
         <a href="{% url 'delete_listing_route' listing_id=list.id %}">Delete</a>
         </li>
     {% endfor %}
