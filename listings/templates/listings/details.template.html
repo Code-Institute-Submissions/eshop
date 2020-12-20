@@ -1,7 +1,11 @@
 {% extends 'base.template.html' %}
+{% load cloudinary %}
 
 {% block content %}
 <h1>{{listing.title}}</h1>
+
+{% cloudinary listing.cover %}
+
 <p>
     SKU: {{listing.SKU}}
 </p>

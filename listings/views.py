@@ -13,11 +13,13 @@ def index(request):
     }
     )
 
+
 def view_listing_details(request, listing_id):
     listing = get_object_or_404(Listing, pk=listing_id)
     return render(request, 'listings/details.template.html', {
         'listing': listing
     })
+
 
 def view_sellers(request):
     all_sellers = Seller.objects.all()
@@ -34,11 +36,16 @@ def create_listing(request):
             form.save()
             messages.success(request, f"New listing {form.cleaned_data['title']} has been created")
             return redirect(reverse(index))
+        # else:
+        #     # if does not have valid values, re-render the form
+        #     return render(request, 'listings/create_listing.template.html', {
+        #         'form': form
+        #     })
     else:
         # create instance of ListingForm
-        create_listing_form = ListingForm()
+        form = ListingForm()
         return render(request, 'listings/create_listing.template.html', {
-            'form': create_listing_form
+            'form': form
         })
 
 
