@@ -31,6 +31,9 @@ class Listing(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     cover = CloudinaryField()
+    
+    cost = models.IntegerField(blank=False)
+
     # condition = models.ManyToManyField('Condition')
 
     # toString function -- allow us to state the string rep of class

@@ -11,10 +11,11 @@
 
     hello worldz
     {% for list in listings %}
-        <li>
+        <li class="mt-1 mb-1">
         <a href="{% url 'view_listing_details' listing_id=list.id %}">{{list.title}}</a>    
-        {{list.title}} - {{list.description}} <a href="{% url 'update_listing_route' listing_id=list.id %}">Edit</a>
-        <a href="{% url 'delete_listing_route' listing_id=list.id %}">Delete</a>
+        {{list.title}} - {{list.description}} <a href="{% url 'update_listing_route' listing_id=list.id %}" class= "btn btn-primary btn-sm">Edit</a>
+        <a href="{% url 'delete_listing_route' listing_id=list.id %}" class= "btn btn-primary btn-sm">Delete</a>
+        <a href="{% url 'add_to_cart' listing_id=list.id %}" class= "btn btn-primary btn-sm">Add to Cart</a> 
         </li>
     {% endfor %}
 {%endblock%}
