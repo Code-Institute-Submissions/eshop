@@ -17,7 +17,7 @@ def add_to_cart(request, listing_id):
         cart[listing_id] = {
             'id': listing_id,
             'title': listing.title,
-            'cost': "{:.2f}".format(listing.cost/1000),
+            'cost': "{:.2f}".format(listing.cost/100),
             'qty': 1
         }
     else:
@@ -48,7 +48,7 @@ def remove_from_cart(request, listing_id):
         request.session['shopping_cart'] = cart
         messages.success(request, "Item succesfully removed from cart")
 
-    return redirect(reverse('view_listings_route'))
+    return redirect(reverse('view_listing_route'))
 
 
 def update_quantity(request, listing_id):

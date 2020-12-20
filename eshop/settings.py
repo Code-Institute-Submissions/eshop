@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'listings',
     'reviews',
     'cart',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.contexts.cart_contents'
             ],
         },
     },
@@ -170,4 +172,6 @@ CLOUDINARY = {
     'api_secret': os.environ.get("CLOUDINARY_API_SECRET"),
 }
 
-print(CLOUDINARY)
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+ENDPOINT_SECRET = os.environ.get('ENDPOINT_SECRET')
