@@ -5,5 +5,5 @@ from cloudinary.forms import CloudinaryJsFileField
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        fields = ('title', 'SKU', 'description', 'category', 'seller', 'cover')
+        fields = ('title', 'SKU', 'description', 'category', 'seller', 'cover', 'cost')
     cover = CloudinaryJsFileField()
