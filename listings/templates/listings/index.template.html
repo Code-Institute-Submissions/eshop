@@ -1,19 +1,26 @@
 {% extends 'base.template.html' %}
+{% load cloudinary %}
 {%load static %}
+{% load mathfilters %}
 
-<!-- {%block content%}
-    {% if request.user.is_authenticated  %}
-    <p>Welcome {{request.user}}</p>
-    {% else %}
-    <p>Please <a href="/accounts/login">Login</a></p>
-    {%endif%} -->
-
-    {% for list in listings %}
-        <li class="mt-1 mb-1">
-        <a href="{% url 'view_listing_details' listing_id=list.id %}">{{list.title}}</a>    
-        {{list.title}} - {{list.description}} <a href="{% url 'update_listing_route' listing_id=list.id %}" class= "btn btn-primary btn-sm">Edit</a>
-        <a href="{% url 'delete_listing_route' listing_id=list.id %}" class= "btn btn-primary btn-sm">Delete</a>
-        <a href="{% url 'add_to_cart' listing_id=list.id %}" class= "btn btn-primary btn-sm">Add to Cart</a> 
-        </li>
+{%block content%}
+<div class="card-deck">
+{% for list in listings %}
+<div class="card">
+  <!-- <img class="card-img-top" alt="Card image cap"> -->
+  <p></p>
+  <div class="text-center">
+   {% cloudinary list.cover width=200 height=200 gravity="faces" crop="fill" %} 
+  </div>
+  <div class="card-body text-center">
+    <h5 class="card-title">{{list.title}}</h5>
+    <h5 class="card-title">Price: ${{list.cost|div:100|floatformat:2}}</h5>
+    <a href="{% url 'view_listing_details' listing_id=list.id %}" class="btn btn-primary">View Details</a>
+    <a href="{% url 'add_to_cart' listing_id=list.id %}" class="btn btn-primary">Add To Cart</a>
+  </div>
+</div>
     {% endfor %}
+</div>
+
+
 {%endblock%}

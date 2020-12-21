@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'cloudinary',
+    'mathfilters',
     'listings',
     'reviews',
     'cart',
