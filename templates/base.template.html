@@ -14,23 +14,57 @@
 </head>
 
 <body>
+   
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
+  <a class="navbar-brand" href="{% url 'view_listing_route' %}">Chatuchak 365</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
- <nav class="navbar navbar-expand-sm bg-light">
-        <!-- Links -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'view_listing_route' %}">Listings</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link 2</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'view_cart' %}">Cart ({{number_of_items}})</a>
-          </li>
-        </ul>
-      </nav>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+        <form class="form-inline mr-auto">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <ul class="navbar-nav my-2 my-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'view_cart' %}">Cart: ({{number_of_items}})</a>
+      </li>
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account: 
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">My Profile</a>
+          <a class="dropdown-item" href="#">My Orders</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Login</a>
+      </li>
+    </ul>
+  </div>
 
+</nav>    
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
         {% if messages %}
         <div class='alert alert-success'>
             {% for message in messages %} <p>{{ message }}</p> {% endfor %}
@@ -40,6 +74,8 @@
 
         {%block content%}{%endblock%}
     </div>
+   </div>
+    
 
 
     <!-- Optional JavaScript -->
