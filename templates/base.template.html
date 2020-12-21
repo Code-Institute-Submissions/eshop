@@ -29,28 +29,40 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
     </form>
-    <ul class="navbar-nav my-2 my-lg-0">
+    <ul class="navbar-nav my-2 my-lg-0 mr-3">
       <li class="nav-item active">
         <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'view_cart' %}">Cart: ({{number_of_items}})</a>
       </li>
-      <li class="nav-item active dropdown">
+    <li class="nav-item active">
+        <a class="nav-link" href="#">Orders</a>
+      </li>
+      <!-- <li class="nav-item active dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Account: 
+    
+account info
+         
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">My Profile</a>
           <a class="dropdown-item" href="#">My Orders</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="#">Logout      
+        </a>
         </div>
+      </li> -->
+
+
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Login</a>
-      </li>
+
     </ul>
+            {% if request.user.is_authenticated  %}
+            Account: {{request.user}} (<a href="/accounts/logout">logout</a>)
+            {% else %}
+            <a href="/accounts/login">Login / Sign Up</a>
+            {%endif%}
   </div>
 
 </nav>    

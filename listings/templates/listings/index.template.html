@@ -1,15 +1,13 @@
 {% extends 'base.template.html' %}
 {%load static %}
 
-{%block content%}
-    display user logged in
+<!-- {%block content%}
     {% if request.user.is_authenticated  %}
     <p>Welcome {{request.user}}</p>
     {% else %}
     <p>Please <a href="/accounts/login">Login</a></p>
-    {%endif%}
+    {%endif%} -->
 
-    hello worldz
     {% for list in listings %}
         <li class="mt-1 mb-1">
         <a href="{% url 'view_listing_details' listing_id=list.id %}">{{list.title}}</a>    
