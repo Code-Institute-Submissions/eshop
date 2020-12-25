@@ -16,8 +16,8 @@
 
 
 <div class="status">
-    <h2>Status</h2>
-    <span class="status_value">Idle</span>
+    <h5>Image Upload Status</h5>
+    <span class="status_value">Pending upload by user</span>
 </div>
 
 <div class="uploaded_info_holder">
@@ -42,14 +42,14 @@
             .cloudinary_fileupload({
                 dropZone: '#form',
                 start: function () {
-                    $('.status_value').text('Starting direct upload...');
+                    $('.status_value').text('Starting upload...');
                 },
                 progress: function () {
                     $('.status_value').text('Uploading...');
                 },
             })
             .on('cloudinarydone', function (e, data) {
-                $('.status_value').text('Updating backend...');
+                $('.status_value').text('Upload success! Results below. You may submit the listing.');
                 var info = $('<div class="uploaded_info"/>');
                 $(info).append($('<div class="data"/>').append(prettydump(data.result)));
                 $(info).append($('<div class="image"/>').append(

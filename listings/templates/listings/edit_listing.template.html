@@ -5,20 +5,21 @@
 
 {%block content%}
 
-<h3 class="mt-3">Edit {{listing.title}}</h3>
+<h3 class="mt-3 mb-3">Edit Listing Page</h3>
+<h5 class="mb-3">Original Listing Title: {{listing.title}}</h5>
 
     <div id="form">
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form|crispy }}
     <!-- {{ form.as_p }} -->
-    <input type="submit" />
+    <input type="submit" class="btn btn-primary btn-block mt-3 mb-3" />
 </form>
 </div>
 
 <div class="status">
-    <h2>Status</h2>
-    <span class="status_value">Idle</span>
+    <h5>Image Upload Status</h5>
+    <span class="status_value">Pending upload by user</span>
 </div>
 
 <div class="uploaded_info_holder">
@@ -27,11 +28,9 @@
 
 {%endblock%}
 
-
 {% block js %}
 {% cloudinary_includes %}
 {% cloudinary_js_config %}
-
 <script>
     function prettydump(obj) {
         ret = ""
@@ -45,14 +44,14 @@
             .cloudinary_fileupload({
                 dropZone: '#form',
                 start: function () {
-                    $('.status_value').text('Starting direct upload...');
+                    $('.status_value').text('Starting upload...');
                 },
                 progress: function () {
                     $('.status_value').text('Uploading...');
                 },
             })
             .on('cloudinarydone', function (e, data) {
-                $('.status_value').text('Updating backend...');
+                $('.status_value').text('Upload success! Results below. You may submit the listing.');
                 var info = $('<div class="uploaded_info"/>');
                 $(info).append($('<div class="data"/>').append(prettydump(data.result)));
                 $(info).append($('<div class="image"/>').append(

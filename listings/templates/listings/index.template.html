@@ -16,8 +16,8 @@
   <div class="card-body text-center">
     <h5 class="card-title">{{list.title}}</h5>
     <h5 class="card-title">Price: ${{list.price|div:100|floatformat:2}}</h5>
-    <a href="{% url 'view_listing_details' listing_id=list.id %}" class="btn btn-primary">View Details</a>
-    <a href="{% url 'add_to_cart' listing_id=list.id %}" class="btn btn-primary">Add To Cart</a>
+    <a href="{% url 'view_listing_details' listing_id=list.id %}" class="btn btn-success">View Details</a>
+    <a href="{% url 'add_to_cart' listing_id=list.id %}" class="btn btn-warning">Add To Cart</a>
   </div>
 </div>
     {% endfor %}

@@ -34,7 +34,7 @@ def create_listing(request):
         form = ListingForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, f"New listing {form.cleaned_data['title']} has been created")
+            messages.success(request, f"New listing: {form.cleaned_data['title']} has been created")
             return redirect(reverse(index))
         # else:
         #     # if does not have valid values, re-render the form
@@ -55,6 +55,7 @@ def edit_listing(request, listing_id):
         form = ListingForm(request.POST, instance=listing_being_updated)
         if form.is_valid():
             form.save()
+            messages.success(request, f"Listing: {form.cleaned_data['title']} has been successfully edited")
             return redirect(reverse(index))
     else:
         listing_form = ListingForm(instance=listing_being_updated)
@@ -69,6 +70,7 @@ def delete_listing(request, listing_id):
     if request.method == "POST":
         listing_being_deleted = get_object_or_404(Listing, pk=listing_id)
         listing_being_deleted.delete()
+        messages.success(request, f"{listing_being_deleted.title} has been successfully deleted")
         return redirect(index)
     else:
         # if form not submitted via POST, means its GET

@@ -27,7 +27,7 @@ def add_to_cart(request, listing_id):
         cart[listing_id]['qty'] += 1
 
     request.session['shopping_cart'] = cart
-    messages.success(request, "listing has been added to your shopping cart")
+    messages.success(request, f"{listing.title} added to cart")
     return redirect(reverse('view_listing_route'))
 
 
@@ -46,24 +46,25 @@ def view_cart(request):
 
 def remove_from_cart(request, listing_id):
     cart = request.session.get('shopping_cart', {})
-
+    listing = get_object_or_404(Listing, pk=listing_id)
     # check if a key in the cart dictionary that matches the listing_id
     if listing_id in cart:
         del cart[listing_id]
 
         # re-save the session
         request.session['shopping_cart'] = cart
-        messages.success(request, "Item succesfully removed from cart")
+        messages.success(request, f"{listing.title} removed from cart")
 
     return redirect(reverse('view_cart'))
 
 
 def update_quantity(request, listing_id):
     cart = request.session.get('shopping_cart', {})
+    listing = get_object_or_404(Listing, pk=listing_id)
     # if the listing_id I want to update the quantity is in the shopping cart
     if listing_id in cart:
         cart[listing_id]['qty'] = request.POST['qty']
         request.session['shopping_cart'] = cart
-        messages.success(request, "Quantity has been updated")
+        messages.success(request, f"{listing.title} cart quantity updated")
 
     return redirect(reverse('view_cart'))
