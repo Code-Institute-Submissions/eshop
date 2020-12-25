@@ -15,11 +15,11 @@
       <div class="card-body">
         <h3 class="card-title">{{listing.title}}</h3>
         <p class="card-text">Description: {{listing.description}}</p>
-        Price: ${{listing.cost|div:100|floatformat:2}}
-
-            <p></p>Category: {{listing.category.category_name}}
-            <p></p>
-            SKU: {{listing.SKU}}
+        <p></p>Category: {{listing.category.category_name}}
+        <p></p>
+        Price: ${{listing.price|div:100|floatformat:2}}
+        <p></p>
+        Seller: {{listing.seller}}
         <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
         <p></p>
         <a href="{% url 'add_to_cart' listing_id=listing.id %}" class="btn btn-primary">Add To Cart</a>

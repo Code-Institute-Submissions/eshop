@@ -24,15 +24,11 @@ class Category(models.Model):
 class Listing(models.Model):
     # fields / attributes of this table
     title = models.CharField(blank=False, max_length=255)
-    SKU = models.CharField(blank=False, max_length=255)
     description = models.TextField(blank=False)
-    seller = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-
+    price = models.IntegerField(blank=False)
+    seller = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     cover = CloudinaryField()
-    
-    cost = models.IntegerField(blank=False)
 
     # condition = models.ManyToManyField('Condition')
 

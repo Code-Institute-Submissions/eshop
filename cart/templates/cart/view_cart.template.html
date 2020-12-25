@@ -30,8 +30,8 @@
             </form>
 
                     </td>
-                    <td>${{listing.cost}}</td>
-                    <td>${{listing.cost|mul:listing.qty|floatformat:2}}</td>
+                    <td>${{listing.price}}</td>
+                    <td>${{listing.price|mul:listing.qty|floatformat:2}}</td>
                     <td>            <a href="{% url 'remove_from_cart' listing_id=listing.id %}" class="btn btn-danger btn-sm">Delete</a></td>
                 </tr>
 
