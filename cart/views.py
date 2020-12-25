@@ -4,6 +4,7 @@ from listings.models import Listing
 
 # Create your views here.
 
+
 def add_to_cart(request, listing_id):
     listing = get_object_or_404(Listing, pk=listing_id)
 
@@ -15,40 +16,33 @@ def add_to_cart(request, listing_id):
     if listing_id not in cart:
         cart[listing_id] = {
             'id': listing_id,
-            # 'cover': listing.cover,
             'title': listing.title,
             'price': "{:.2f}".format(listing.price/100),
+            'cover': str(listing.cover),
             'qty': 1,
-            # 'subtotal': "{:.2f}".format(listing.price/100),
         }
     else:
         # if the shopping cart already has the listing,
         # then we assume the user want to buy an additional copy
         cart[listing_id]['qty'] += 1
-        # cart[listing_id]['subtotal'] += "{:.2f}".listing.price/100
 
     request.session['shopping_cart'] = cart
-    
     messages.success(request, "listing has been added to your shopping cart")
     return redirect(reverse('view_listing_route'))
 
 
 def view_cart(request):
     cart = request.session.get('shopping_cart', {})
+    total_price = 0
+
+    # for listing in cart.items():
+    #     total_price =+ int(listing['qty']) * int(float(listing['price']))
+
     return render(request, 'cart/view_cart.template.html', {
-        'cart': cart
+        'cart': cart,
+        'total_price': total_price
     })
 
-# def view_cart(request):
-#     cart = request.session.get('shopping_cart', {})
-#     grand_total = 0
-#     for item in cart:
-#         grand_total += cart[item]['subtotal']
-
-#     return render(request, 'cart/view_cart.template.html', {
-#         'shopping_cart': cart,
-#         'grand_total': grand_total,
-#     })
 
 def remove_from_cart(request, listing_id):
     cart = request.session.get('shopping_cart', {})
