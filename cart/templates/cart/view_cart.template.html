@@ -49,11 +49,13 @@
                     <td colspan="12"><small>nil</small></td>
                 </tr>
                 <tr class="total_price" id="total_price_tablet">
-                    <td>Grand Total: </td>
+                    
+                    <td>Grand Total: ${{listing.price|mul:listing.qty|floatformat:2}} </td>
+        
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td colspan="12">123</td>
+                    <td colspan="12">$x</td>
                 </tr>
 <p></p>
   <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>

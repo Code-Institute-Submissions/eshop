@@ -32,7 +32,7 @@ def checkout(request):
         # for the line item, each key in the dictionary is prefixed  by Stripes
         item = {
             "name": listing_model.title,
-            "amount": listing_model.cost,
+            "amount": listing_model.price,
             "quantity": cart_item['qty'],
             "currency": 'usd'
         }
@@ -114,7 +114,7 @@ def handle_payment(session):
         purchase.listing = listing_model
         purchase.user = user
         purchase.qty = order_item['qty']
-        purchase.price = listing_model.cost
+        purchase.price = listing_model.price
 
         # remember to save the model
         purchase.save()
