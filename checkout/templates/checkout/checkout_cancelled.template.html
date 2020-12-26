@@ -1,0 +1,11 @@
+{% extends 'base.template.html' %}
+{% load mathfilters %}
+{% load cloudinary %}
+{% block content%}
+
+<h3 class="mt-3 mb-3">Checkout Cancelled</h3>
+
+<a href="{% url 'view_cart' %}" class="btn btn-warning mt-3 btn-block">Back to Cart</a>
+<a href="{% url 'view_listing_route' %}" class="btn btn-success mt-3 btn-block">Back to Shop Page</a>
+
+{% endblock %}

@@ -67,12 +67,12 @@ def checkout(request):
 
 def checkout_success(request):
     # Empty the shopping cart
-    request.session['shopping_cart'] = {}    
-    return HttpResponse("Payment completed successfully")
+    request.session['shopping_cart'] = {}
+    return render(request, "checkout/payment_success.template.html")
 
 
 def checkout_cancelled(request):
-    return HttpResponse("Checkout cancelled")
+    return render(request, "checkout/checkout_cancelled.template.html")
 
 
 @csrf_exempt
