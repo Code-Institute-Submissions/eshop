@@ -22,6 +22,7 @@ import reviews.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('', listings.views, name='view_listing_route'),
     path('listings/', include('listings.urls')),
     path('reviews/', include('reviews.urls')),
     path('sellers/', listings.views.view_sellers),
