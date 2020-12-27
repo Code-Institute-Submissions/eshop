@@ -79,6 +79,9 @@ def view_listing_details(request, listing_id):
     })
 
 
+def about(request):
+    return render(request, 'about.template.html')
+
 def view_sellers(request):
     all_sellers = Seller.objects.all()
     return render(request, 'listings/sellers.template.html', {

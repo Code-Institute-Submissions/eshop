@@ -17,7 +17,7 @@
 
                    <form method="GET">
     {{search_form|crispy}}
-    <input type="submit" class="btn btn-primary btn-block mt-3" value="Search"/>
+    <input type="submit" class="btn btn-dark btn-block mt-3" value="Search"/>
     </form>
     </div>   
 </div>  
@@ -26,7 +26,7 @@
 <div class ="">
 <div class="card-deck justify-content-center">
 {% for list in listings %}
-<div class="card mt-4" style="min-width: 18rem;">
+<div class="card mt-4" style="min-width: 20rem; max-width: 22rem;">
   <div class="text-center">
       <br>
    {% cloudinary list.cover width=275 height=275 gravity="faces" crop="fill" %} 

@@ -52,14 +52,9 @@
           
   {%endfor%}
 
-            <tr class="total_price">
+            <tr>
 
-                <td>Grand Total: </td>
-
-                <td></td>
-                <td></td>
-                <td></td>
-                <td colspan="12"> ${{total_price|floatformat:2}} </td>
+                <td colspan="12"></td>
 </tr>
 
 </tbody>
@@ -97,7 +92,7 @@
 
   
 
-  <a href="{% url 'checkout' %}" class="btn btn-warning btn-block mt-3">Checkout Total: ${{total_price|floatformat:2}}</a>
+  <a href="{% url 'checkout' %}" class="btn btn-warning btn-block mt-3">Checkout</a>
 
 {% endif %}
 
