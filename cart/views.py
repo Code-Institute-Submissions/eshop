@@ -35,16 +35,8 @@ def add_to_cart(request, listing_id):
 @ login_required
 def view_cart(request):
     cart = request.session.get('shopping_cart', {})
-    total_price = 0
-
-    for listing in cart.items():
-        total_price = + int(listing[1]['qty']) * \
-            int(float(listing[1]['price']))
-        print(listing[1]['qty'])
-
     return render(request, 'cart/view_cart.template.html', {
         'cart': cart,
-        'total_price': total_price
     })
 
 

@@ -23,13 +23,10 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '92*q7quuij#rzx_20+@83(oitem6ji@i%!840v%(0szv72jgds'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*", "jyf-tgc8-ecommerce.herokuapp.com"]
+ALLOWED_HOSTS = ["jyf-tgc8-ecommerce.herokuapp.com"]
 
 # Application definition
 
@@ -187,3 +184,4 @@ CLOUDINARY = {
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 ENDPOINT_SECRET = os.environ.get('ENDPOINT_SECRET')
+SECRET_KEY = os.environ.get('SECRET_KEY')

@@ -20,9 +20,8 @@ def index(request):
             title = request.GET['title']
             queries = queries & Q(title__icontains=title)
 
-        # if a genre is specified, add it to the query
+        # if a category is specified, add it to the query
         if 'category' in request.GET and request.GET['category']:
-            print("adding category")
             category = request.GET['category']
             queries = queries & Q(category__in=category)
 
