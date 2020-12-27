@@ -46,7 +46,7 @@
                 },
             })
             .on('cloudinarydone', function (e, data) {
-                $('.status_value').text('Upload success! Results below. You may submit the listing.');
+                $('.status_value').text('Upload success!');
                 var info = $('<div class="uploaded_info"/>');
                 $(info).append($('<div class="data"/>').append(prettydump(data.result)));
                 $(info).append($('<div class="image"/>').append(
