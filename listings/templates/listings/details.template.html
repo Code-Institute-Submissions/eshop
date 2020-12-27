@@ -21,8 +21,10 @@
         <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
         <p></p>
         <a href="{% url 'add_to_cart' listing_id=listing.id %}" class="btn btn-warning btn-block">Add To Cart</a>
+        {% if user.is_authenticated and user.is_superuser %}
         <a href="{% url 'update_listing_route' listing_id=listing.id %}" class="btn btn-secondary btn-block">Edit Listing</a>
         <a href="{% url 'delete_listing_route' listing_id=listing.id %}" class="btn btn-dark btn-block">Delete Listing</a>
+        {% endif %}
 </div>
     </div>
   </div>
