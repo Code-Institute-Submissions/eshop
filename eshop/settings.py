@@ -31,7 +31,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*", "jyf-tgc8-ecommerce.herokuapp.com"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -103,7 +102,6 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/listings/'
 LOGOUT_REDIRECT_URL = '/listings/'
-# not sure how to redirect logout yet
 
 TEST_EMAIL = os.environ.get("TEST_EMAIL")
 if TEST_EMAIL == "1":
@@ -117,14 +115,11 @@ else:
     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
     DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
 
-
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 WSGI_APPLICATION = 'eshop.wsgi.application'
 
 
-# Database
+# Commented out database for SQLlite3, migrated to Heroku Postgres
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # DATABASES = {
@@ -135,7 +130,6 @@ WSGI_APPLICATION = 'eshop.wsgi.application'
 # }
 
 DATABASES = {'default': dj_database_url.parse(os.environ["DATABASE_URL"])}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -155,7 +149,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -168,7 +161,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

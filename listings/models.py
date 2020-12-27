@@ -4,21 +4,12 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
-# to have a listing table in database
-
 
 class Category(models.Model):
     category_name = models.CharField(blank=False, max_length=255)
 
     def __str__(self):
         return f"{self.category_name}"
-
-
-# class Condition(models.Model):
-#     condition_name = models.CharField(blank=False, max_length=255)
-
-#     def __str__(self):
-#         return self.condition_name
 
 
 class Listing(models.Model):
@@ -30,7 +21,6 @@ class Listing(models.Model):
     seller = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     cover = CloudinaryField()
 
-    # condition = models.ManyToManyField('Condition')
 
     # toString function -- allow us to state the string rep of class
     def __str__(self):
@@ -53,6 +43,3 @@ class Seller(models.Model):
 
     def __str__(self):
         return f"{self.seller_name} ({self.seller_email})"
-
-
-

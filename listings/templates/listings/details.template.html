@@ -3,32 +3,31 @@
 {% load mathfilters %}
 
 {% block content %}
-<h3 class = "mt-4 mb-4">Product Detail Page</h3>
-<div class ="col">
-<div class="card">
-      <div class="card-body">
-        <div class="row">
-    <div class="col-lg-6 mt-4 mb-4 text-center">
-      <!-- <img src="..." class="card-img" alt="..."> -->
-      {% cloudinary listing.cover width=275 height=275 gravity="faces" crop="fill"%}
+<h3 class="mt-4 mb-4">Product Detail Page</h3>
+<div class="col">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6 mt-4 mb-4 text-center">
+                    {% cloudinary listing.cover width=275 height=275 gravity="faces" crop="fill"%}
+                </div>
+                <div class="col-lg-6 text-justify">
+                    <h3 class="card-title mt-2">{{listing.title}}</h3>
+                    <p class="card-text">Description: {{listing.description}}</p>
+                    <p>Category: {{listing.category.category_name}}</p>
+                    <p>Price: ${{listing.price|div:100|floatformat:2}}</p>
+                    <a href="{% url 'add_to_cart' listing_id=listing.id %}" class="btn btn-warning btn-block">Add To
+                        Cart</a>
+                    {% if user.is_authenticated and user.is_superuser %}
+                    <a href="{% url 'update_listing_route' listing_id=listing.id %}"
+                        class="btn btn-secondary btn-block">Edit Listing</a>
+                    <a href="{% url 'delete_listing_route' listing_id=listing.id %}"
+                        class="btn btn-dark btn-block">Delete Listing</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
-            <div class="col-lg-6 text-justify">
-        <h3 class="card-title mt-2">{{listing.title}}</h3>
-        <p class="card-text">Description: {{listing.description}}</p>
-        <p></p>Category: {{listing.category.category_name}}
-        <p></p>
-        Price: ${{listing.price|div:100|floatformat:2}}
-        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-        <p></p>
-        <a href="{% url 'add_to_cart' listing_id=listing.id %}" class="btn btn-warning btn-block">Add To Cart</a>
-        {% if user.is_authenticated and user.is_superuser %}
-        <a href="{% url 'update_listing_route' listing_id=listing.id %}" class="btn btn-secondary btn-block">Edit Listing</a>
-        <a href="{% url 'delete_listing_route' listing_id=listing.id %}" class="btn btn-dark btn-block">Delete Listing</a>
-        {% endif %}
 </div>
-    </div>
-  </div>
-</div>
-</div>
-   <a href="{% url 'view_listing_route' %}" class="btn btn-success mt-3 btn-block">Back to Shop Page</a>
+<a href="{% url 'view_listing_route' %}" class="btn btn-success mt-3 btn-block">Back to Shop Page</a>
 {% endblock %}

@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse, HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from listings.models import Listing
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -31,13 +31,15 @@ def add_to_cart(request, listing_id):
     messages.success(request, f"{listing.title} added to cart")
     return redirect(reverse('view_listing_route'))
 
-@login_required
+
+@ login_required
 def view_cart(request):
     cart = request.session.get('shopping_cart', {})
     total_price = 0
 
     for listing in cart.items():
-        total_price =+ int(listing[1]['qty']) * int(float(listing[1]['price']))
+        total_price = + int(listing[1]['qty']) * \
+            int(float(listing[1]['price']))
         print(listing[1]['qty'])
 
     return render(request, 'cart/view_cart.template.html', {
