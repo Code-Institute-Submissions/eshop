@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <!doctype html>
 <html lang="en">
 
@@ -13,63 +12,43 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>{%block title%}{%endblock%}</title>
+    <title>Chatuchak 365</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 
 <body>
-   
-    
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <div class="container">
-  <a class="navbar-brand" href="{% url 'view_listing_route' %}">Chatuchak 365</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'view_listing_route' %}">Chatuchak 365</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <ul class="navbar-nav ml-auto my-2 my-lg-0 mr-2">
-      <li class="nav-item active">
-    <li class="nav-item active">
-         {% if user.is_authenticated and user.is_superuser %}
-        <a class="nav-link" href="{% url 'create_listing' %}">Create Listing <span class="sr-only">(current)</span></a>
-        {% endif %}
-      </li>
-        <a class="nav-link active" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'view_cart' %}">Cart: ({{number_of_items}})</a>
-      </li>
-
-      <!-- <li class="nav-item active dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    
-account info
-         
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">My Profile</a>
-          <a class="dropdown-item" href="#">My Orders</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Logout      
-        </a>
+                <ul class="navbar-nav ml-auto my-2 my-lg-0 mr-2">
+                    <li class="nav-item active">
+                    <li class="nav-item active">
+                        {% if user.is_authenticated and user.is_superuser %}
+                        <a class="nav-link" href="{% url 'create_listing' %}">Create Listing <span
+                                class="sr-only">(current)</span></a>
+                        {% endif %}
+                    </li>
+                    <a class="nav-link active" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'view_cart' %}">Cart: ({{number_of_items}})</a>
+                    </li>
+                </ul>
+                {% if request.user.is_authenticated  %}
+                Account: {{request.user}} (<a href="/accounts/logout">logout</a>)
+                {% else %}
+                <a href="/accounts/login">Login / Sign Up</a>
+                {%endif%}
+            </div>
         </div>
-      </li> -->
-
-
-      </li>
-
-    </ul>
-            {% if request.user.is_authenticated  %}
-            Account: {{request.user}} (<a href="/accounts/logout">logout</a>)
-            {% else %}
-            <a href="/accounts/login">Login / Sign Up</a>
-            {%endif%}
-  </div>
-</nav>    
-
+    </nav>
 
     <div class="container mt-3">
         {% if messages %}
@@ -81,15 +60,14 @@ account info
         {% endif %}
         {%block content%}{%endblock%}
 
-        </div>
- 
-    <!-- footer --> 
-    <hr class="shadow-sm">
-     <div id="footer" class="text-right mb-3 mr-3">
-        &copy; Chatuchak 365 by Jiun Yang // 2020
-    <!-- end of container -->
     </div>
 
+    <!-- footer -->
+    <hr class="shadow-sm">
+    <div id="footer" class="text-right mb-3 mr-3">
+        &copy; Chatuchak 365 by Jiun Yang // 2020
+        <!-- end of container -->
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
