@@ -22,10 +22,10 @@ import reviews.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('', listings.views, name='view_listing_route'),
+    path('', listings.views.index),
     path('listings/', include('listings.urls')),
     path('reviews/', include('reviews.urls')),
     path('sellers/', listings.views.view_sellers),
     path('cart/', include('cart.urls')),
-    path('checkout/', include('checkout.urls')),  
+    path('checkout/', include('checkout.urls')),
 ]
