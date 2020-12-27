@@ -102,7 +102,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/listings/'
-# LOGOUT_REDIRECT_URL = '/listings/'
+LOGOUT_REDIRECT_URL = '/listings/'
 # not sure how to redirect logout yet
 
 TEST_EMAIL = os.environ.get("TEST_EMAIL")
