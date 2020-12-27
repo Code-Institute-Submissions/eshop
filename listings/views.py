@@ -2,7 +2,8 @@ from django.shortcuts import render, HttpResponse, redirect, reverse, get_object
 from .models import Listing, Seller
 from .forms import ListingForm
 from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.admin.views.decorators import staff_member_required
+# from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import user_passes_test
 from django.contrib import messages
 # Create your views here.
 
@@ -29,7 +30,8 @@ def view_sellers(request):
     })
 
 
-@staff_member_required
+# @staff_member_required
+@user_passes_test(lambda u: u.is_superuser)
 def create_listing(request):
     if request.method == "POST":
         form = ListingForm(request.POST)
@@ -49,7 +51,8 @@ def create_listing(request):
             'form': form
         })
 
-@staff_member_required
+# @staff_member_required
+@user_passes_test(lambda u: u.is_superuser)
 def edit_listing(request, listing_id):
     listing_being_updated = get_object_or_404(Listing, pk=listing_id)
     if request.method == "POST":
@@ -65,7 +68,8 @@ def edit_listing(request, listing_id):
             'listing': listing_being_updated
         })
 
-@staff_member_required
+# @staff_member_required
+@user_passes_test(lambda u: u.is_superuser)
 def delete_listing(request, listing_id):
     # check if form has been submited via POST
     if request.method == "POST":
