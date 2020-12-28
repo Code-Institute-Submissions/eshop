@@ -43,7 +43,7 @@ In addition, the site owner may also use the website for the following objective
 - Charge a small comission fee per transcation (this feature can be built in the future) between the buyer and seller, which can be channeled to maintaing and building more features for the website
 
 Desktop and mobile view shown respectively below: ![Main listing page](report/desktop.png "Desktop thread page")
-M![Mobile view of the listing page](report/mobile.png "Mobile thread page")
+![Mobile view of the listing page](report/mobile.png "Mobile thread page")
 
 ### Structure & Intended User Behavior
 The navbar contains all major modules present in the website, explained below:
