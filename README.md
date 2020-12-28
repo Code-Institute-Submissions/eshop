@@ -41,19 +41,17 @@ In addition, the site owner may also use the website for the following objective
 - Monetise the website via advertsement revenue if traffic is high enough
 - Charge a small comission fee per transcation (this feature can be built in the future) between the buyer and seller, which can be channeled to maintaing and building more features for the website
 
-![Main listing page](report/desktop.png "Desktop thread page")
-![Mobile view of the listing page](report/mobile.png "Mobile thread page")
-
+Desktop view below: ![Main listing page](report/desktop.png "Desktop thread page")
+Mobile view below: ![Mobile view of the listing page](report/mobile.png "Mobile thread page")
 
 ### Structure & Intended User Behavior
 - The navbar contains all major modules present in the website, explained below:
 - **Login:** Here, user may login / logout, or create a new account if they'd like to. Logged in accounts will see their username displayed on the top right hand corner of the navbar, or in the navbar dropdown in mobile screens. Guest have access to listing pages. Registered basic account have access to cart and checkout pages. Superusers have access to all pages, including add / edit / delete listing functionalities. 
 - **Add listing:** Superusers may create new listings with this feature, which will lead them to a page till fill up a new listings' product title, description, category, price, and product image. This entry point is hidden from normal users and guests.
-- **View listings:** View listings page can be accessed by anyone. This page can be accessed by clicking on the "Chatuchak 365" text on the navbar. Here, sellers may view all listings as shown (sorted by upload / update time), or they may leverage on the search and filter functionalities to look for specific listings. All listings are displayed as cards on the main page. Cards are used as it allows listing images to be prioritised and shown visually to buyers, with a call to action to either view more details about the listing, or to add to cart. If a visitor wish to find out more about the listing, he may visit the product detail page of each listing, which contains full information about the listing For admin (superusers), the listing detail page also shows edit / delete functionalities, which allows the listing to be edited / deleted in a step-by-step manner to prevent accidental edit or delete mistakes. 
+- **View listings:** View listings/shop page can be accessed by anyone. This page can be accessed by clicking on the "Chatuchak 365" text on the navbar. Here, sellers may view all listings as shown (sorted by upload / update time), or they may leverage on the search and filter functionalities to look for specific listings. All listings are displayed as cards on the main page. Cards are used as it allows listing images to be prioritised and shown visually to buyers, with a call to action to either view more details about the listing, or to add to cart. If a visitor wish to find out more about the listing, he may visit the product detail page of each listing, which contains full information about the listing For admin (superusers), the listing detail page also shows edit / delete functionalities, which allows the listing to be edited / deleted in a step-by-step manner to prevent accidental edit or delete mistakes. 
 - **Cart:** : The cart page can be accssed from the navbar. A user needs to be logged in to a basic account to access this page. Everytime a seller adds a new listing to cart, the number of items in cart will be shown in brackets, next to the cart text, i.e. cart (3) shows that there are 3 items in the cart. In the cart page, buyers will see the list of items they have added to cart, and its repective detail. The quantity of products can be adjusted in cart page. The product can also be removed from the cart page if needed. The cart page shows a table view in large screen, and card view in small screen, which optimises the user experience in both scenario. Once the user is satisfied with the listings in the cart, the user may proceed to checkout, which will lead to the payment page.
 - The **payment page** (via STRIPE API) will then require the buyer to fill in his particulars and credit card information before a successful checkout.
 - **About:** The website contains an "about page" which explains the background, objectives, and content of the website
-
 
 ### User Interface & Design
 Functionality and clarity was the main focus and reason behind the colour scheme and typography choice. A yellow navbar is the chosen theme because it represents action and excitement behind an ecommerce concept. The background is kept as white, so as to allow users to focus instead on the listing images generated on the cards. White is also a comforatble background color when buyers are checking their cart items, and making credit card payment in the payment page. Links and buttons are all labelled with words, so there is no misunderstanding for users of the website. If time and resource permits, the colour scheme and styling should be revisited and improved to offer something unique for the community. 
@@ -63,7 +61,7 @@ Functionality and clarity was the main focus and reason behind the colour scheme
 ### Current Features
 #### Feature for Guests (Non logged-in account)
 - Ability to visit the about page
-- Ability to visit all listing pages, and use the search (by product title) feature, or filter (by category) feature
+- Ability to visit all listing/shop pages, and use the search (by product title) feature, or filter (by category) feature
 - Ability to view specific listing's product detail page to see more information
 - Ability to add listing to cart (but unable to access cart page)
 - Ability to create new account
@@ -127,7 +125,7 @@ All testing was done manually, with the following tests performed. Please note t
 |  # | Event | Expected Outcome | Actual Outcome |
 |----|-------|------------------|----------------|
 |  1 | as guest, browse about page| able to access about page | As expected |
-|  2 | as guest, browse listing page | able to access listing page and see all listings | As expected |
+|  2 | as guest, browse listing / shop page | able to access listing / shop page and see all listings | As expected |
 |  3 | as guest, try searching for a listing by title, click search button when done | able to see listings with title that only match keyword searched | As expected |
 |  4 | as guest, try sorting listing by category, click search button when done | able to see listings with category that match category filtered | As expected |
 |  5 | as guest, view listings' detail, and enter listing detail page | able to enter product detail page | As expected |
@@ -149,52 +147,61 @@ All testing was done manually, with the following tests performed. Please note t
 | 21 | as superuser, enter individual product page, and delete existing listing | able to delete existing listing, which will be completely removed from the website. there will be an intermediate step to ask the superuser to confirm the delete, incase there are any second thoughts in between the process. | As expected |
 | 22 | repeat above steps in PC / Mobile view | UI is optimised for both PC and mobile for all pages, functionalities are retained for both interfaces | As expected |
 
-
-
 ## Deployment Steps
-A live demo of this project can be viewed [here](https://jyf-codebuddy.herokuapp.com/).
-All the source code for this project is available [here](https://github.com/jyfoo213/CodeBuddy) on GitHub.
+A live demo of this project can be viewed [here](https://jyf-tgc8-ecommerce.herokuapp.com/about/).
+All the source code for this project is available [here](https://github.com/jyfoo213/eshop) on GitHub.
 
-Code for the project was committed to GitHub in the following manner:
+Code for the project was committed to GitHub as follows:
 - Individual files were added to the next commit staging area by executing the `git add [filename]` command in a command-line interface.
 - All changes in the working directory were added to the next commit (stage) by executing the `git add .` command in a command-line interface.
 - Staged content was committed as new commit snapshot by executing the `git commit -m “[message]"` command in a command-line interface.
 - Local branch commits were pushed to the remote repository master branch by executing the `git push -u origin master` command in a command-line interface.
 - Subsequent local branch commits were pushed to the remote repository master branch by executing the `git push` command in a command-line interface.
 
-Deployment to Heroku was performed in a debian based linux environment bash terminal in the following manner:
+Deployment to Heroku was done as follows:
 - Install Heroku on local machine: `sudo snap install heroku --classic`
 - Log into Heroku: `heroku login -i`
 - Create a new heroku app: `heroku create <app-name>`
 - Verify that the correct remotes have been added: `git remote -v`
 - Setup a python virtual environment in the root folder of the project: `python3 -m venv venv`
 - Activate the python virtual environment whilst being in the root folder of the project: `source venv\bin\activate`
-- Install the dependencies: `pip install dnspython Flask Flask-Login gunicorn passlib pymongo python-dotenv`
-- Create requirements.txt file to store dependencies `pip freeze > requirements.txt`
+- Install the dependencies: `pip install dj-database-url Django django-allauth django-crispy-forms django-mathfilters djangorestframework gunicorn psycopg2 python-dotenv stripe whitenoise`
+- Create `requirements.txt file` to store dependencies `pip freeze > requirements.txt`
 
 Using a file manager:
 - Create a file named `Procfile` without speech-marks or file extension and save `web gunicorn <main flask file name without .py>:app` on the first line of `Procfile` (in my case, the contents of the Procfile was `web gunicorn app:app`)
 
 Using a web browser:
-- Log into [Heroku](https://id.heroku.com/login) and set environment variables for `SECRET_KEY = <your own key>`, `MONGO_URI = <your MongoDB URI>`
+- Log into [Heroku](https://id.heroku.com/login) and set environment variables for
+```
+SECRET_KEY = "<your own key>"
+DEBUG_MODE = "False"
+DATABASE_URL = "<Heroku PostgreSQL database URL>"
+STRIPE_PUBLISHABLE_KEY = "<Stripe publishable key>"
+STRIPE_SECRET_KEY = "<Stripe secret key>"
+STRIPE_WEBHOOK_SIGNING_SECRET = "<Stripe webhook endpoint signing secret>"
+EMAIL_HOST_PASSWORD = "<email host password>"
+EMAIL_HOST_USER = "<email address>"
+```
 
 Back in the bash terminal:
 - Commit all new changes to GitHub: `git add .` then `git commit -m “[message]"` then `git push`
 - Finally, push to Heroku: `git push heroku master`
 
-## Run locally on PC
-- Clone the [repository](https://github.com/jyfoo213/CodeBuddy)
-- Setup a python virtual environment in the root folder of the project: `python3 -m venv venv`
-- Activate the python virtual environment whilst in the root folder of the project: `source venv\bin\activate`
-- Install the dependencies: `pip install -r requirements.txt`
-- In root folder of project, create a `.env` file and set the following environment variables: `export SECRET_KEY = <your own key>`, `export MONGO_URI = <your MongoDB URI>`, `export PORT = <your chosen port>`
-- Run the web app `python app.py`
-- Use a web browser to navigate to `localhost:<your chosen port>`
+## Download locally to PC
+- Ensure local IDE has all required plugin extensions for Python Django
+- Clone the [repository](https://github.com/jyfoo213/eshop)
+- Run in IDE terminal `git clone https://github.com/jyfoo213/eshop`
+- Repository will be cloned into a folder on your computer
 
 ## Minor Issues
-- When a admin needs to update a listing, the image field has to be re-uploaded. This is a known issue of Cloudinary, the 3rd party image hosting server used. Further enhancements in the future can be to allow existing product images to be retained when a user wants to update the listing.
+- When an admin/superuser needs to update a listing, the image field has to be re-uploaded. This is a known issue of Cloudinary, the 3rd party image hosting server used. Further enhancements in the future can be to allow existing product images to be retained when a user wants to update the listing.
 
 ## Credits
 - Code institues instructor Paul Chor for development guidance
 - Teaching assistant John Benedict for helping with troubleshooting of bugs
-- Reddit / Quora / Stackoverflow as website inspiration
+- Ecommerce websites such as Shopee as website inspiration
+
+## Acknowledgements
+- Code base is adapted from Paul Chor's coding lessons and tutorial
+- Ecommerce listing image files are taken from Google images
