@@ -19,6 +19,7 @@ Below are the sample test accounts for project demo:
 
 - Guests may also create their own new account on the website, which will be automatically qualified as a basic user.
 - Superuser accounts can only be created upon request, or testers may use the sample superuser account provided.
+- **Note: STRIPE Credit Card Test Checkout Payment** can be made with the test card number 4242 4242 4242 4242, any future card expiry date, any ccv, any email address
 
 ## UX
 
@@ -41,15 +42,15 @@ In addition, the site owner may also use the website for the following objective
 - Monetise the website via advertsement revenue if traffic is high enough
 - Charge a small comission fee per transcation (this feature can be built in the future) between the buyer and seller, which can be channeled to maintaing and building more features for the website
 
-Desktop view below: ![Main listing page](report/desktop.png "Desktop thread page")
-Mobile view below: ![Mobile view of the listing page](report/mobile.png "Mobile thread page")
+Desktop and mobile view shown respectively below: ![Main listing page](report/desktop.png "Desktop thread page")
+M![Mobile view of the listing page](report/mobile.png "Mobile thread page")
 
 ### Structure & Intended User Behavior
-- The navbar contains all major modules present in the website, explained below:
+The navbar contains all major modules present in the website, explained below:
 - **Login:** Here, user may login / logout, or create a new account if they'd like to. Logged in accounts will see their username displayed on the top right hand corner of the navbar, or in the navbar dropdown in mobile screens. Guest have access to listing pages. Registered basic account have access to cart and checkout pages. Superusers have access to all pages, including add / edit / delete listing functionalities. 
 - **Add listing:** Superusers may create new listings with this feature, which will lead them to a page till fill up a new listings' product title, description, category, price, and product image. This entry point is hidden from normal users and guests.
 - **View listings:** View listings/shop page can be accessed by anyone. This page can be accessed by clicking on the "Chatuchak 365" text on the navbar. Here, sellers may view all listings as shown (sorted by upload / update time), or they may leverage on the search and filter functionalities to look for specific listings. All listings are displayed as cards on the main page. Cards are used as it allows listing images to be prioritised and shown visually to buyers, with a call to action to either view more details about the listing, or to add to cart. If a visitor wish to find out more about the listing, he may visit the product detail page of each listing, which contains full information about the listing For admin (superusers), the listing detail page also shows edit / delete functionalities, which allows the listing to be edited / deleted in a step-by-step manner to prevent accidental edit or delete mistakes. 
-- **Cart:** : The cart page can be accssed from the navbar. A user needs to be logged in to a basic account to access this page. Everytime a seller adds a new listing to cart, the number of items in cart will be shown in brackets, next to the cart text, i.e. cart (3) shows that there are 3 items in the cart. In the cart page, buyers will see the list of items they have added to cart, and its repective detail. The quantity of products can be adjusted in cart page. The product can also be removed from the cart page if needed. The cart page shows a table view in large screen, and card view in small screen, which optimises the user experience in both scenario. Once the user is satisfied with the listings in the cart, the user may proceed to checkout, which will lead to the payment page.
+- **Cart:** The cart page can be accssed from the navbar. A user needs to be logged in to a basic account to access this page. Everytime a seller adds a new listing to cart, the number of items in cart will be shown in brackets, next to the cart text, i.e. cart (3) shows that there are 3 items in the cart. In the cart page, buyers will see the list of items they have added to cart, and its repective detail. The quantity of products can be adjusted in cart page. The product can also be removed from the cart page if needed. The cart page shows a table view in large screen, and card view in small screen, which optimises the user experience in both scenario. Once the user is satisfied with the listings in the cart, the user may proceed to checkout, which will lead to the payment page.
 - The **payment page** (via STRIPE API) will then require the buyer to fill in his particulars and credit card information before a successful checkout.
 - **About:** The website contains an "about page" which explains the background, objectives, and content of the website
 
@@ -59,7 +60,7 @@ Functionality and clarity was the main focus and reason behind the colour scheme
 ## Features
 
 ### Current Features
-#### Feature for Guests (Non logged-in account)
+#### Feature for Guests (Non logged-in account aka guest visitor)
 - Ability to visit the about page
 - Ability to visit all listing/shop pages, and use the search (by product title) feature, or filter (by category) feature
 - Ability to view specific listing's product detail page to see more information
@@ -81,7 +82,7 @@ Functionality and clarity was the main focus and reason behind the colour scheme
 - Ability to edit existing listing
 - Ability to delete existing listing
 
-### Potential Features to Further Implement:
+### Potential Features for Future Implementation:
 - Adding of seller / vendor management modules, to allow sellers to view order details and track order status
 - Adding of like / wishlist feature per listing, for users to save listings into a wishlist to keep track, before checkout
 - Adding of review feature, for buyers to leave a review of the product, so other users can make a better purchase decision, and sellers can improve on their products and services
@@ -121,7 +122,7 @@ The following Django models were created:
 The relationship between the models are illustrated in [this ER diagram](report/ERD.png).
 
 ## Testing
-All testing was done manually, with the following tests performed. Please note that sample normal and superuser account and password has been provided in the first section (above) of this README file.
+All testing was done manually, with the following tests performed. Please note that a sample normal account and superuser account and their respective passwords, along with STRIPE checkout credit card test numbers have been provided in the first section (above) of this README file.
 |  # | Event | Expected Outcome | Actual Outcome |
 |----|-------|------------------|----------------|
 |  1 | as guest, browse about page| able to access about page | As expected |
